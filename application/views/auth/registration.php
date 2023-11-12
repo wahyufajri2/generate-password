@@ -2,44 +2,42 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <link rel="shortcut icon" href="<?= base_url('assets/'); ?>img/logo-unisa.png" type="image/x-icon">
-    <title>Halaman Masuk</title>
-
     <link rel="stylesheet" href="<?= base_url('assets/'); ?>css/style-log.css">
-
+    <title>Halaman Daftar</title>
 </head>
 
 <body>
     <section>
-        <div class="form-box">
+        <div class="form-box-reg">
             <div class="form-value">
-                <form class="user" method="post" action="<?= base_url('auth'); ?>">
-                    <h2>Masuk Akun</h2>
+                <form action="">
+                    <h2>Daftar Akun</h2>
+                    <div class="inputbox">
+                        <ion-icon name="person-outline"></ion-icon>
+                        <input type="text" required>
+                        <label for="">Nama Lengkap</label>
+                    </div>
                     <div class="inputbox">
                         <ion-icon name="mail-outline"></ion-icon>
                         <input type="email" required>
-                        <label for="">Email</label>
+                        <label for="">Alamat Email</label>
                     </div>
                     <div class="inputbox">
                         <ion-icon name="lock-closed-outline"></ion-icon>
                         <input type="password" required>
                         <label for="">Kata Sandi</label>
                     </div>
-                    <div class="remember">
-                        <label for=""><input type="checkbox">Ingatkan Saya</label>
+                    <div class="inputbox">
+                        <ion-icon name="lock-closed-outline"></ion-icon>
+                        <input type="password" required>
+                        <label for="">Ulangi Kata Sandi</label>
                     </div>
-                    <button>Masuk</button>
+                    <button>Daftar</button>
                     <div class="forgot">
                         <a href="#">Lupa Kata Sandi</a>
                     </div>
                     <div class="register">
-                        <p>Belum punya akun? <a href="<?= base_url('auth/registration'); ?>">Daftar!</a></p>
+                        <p>Sudah punya akun? <a href="<?= base_url('auth'); ?>">Masuk!</a></p>
                     </div>
                 </form>
             </div>
