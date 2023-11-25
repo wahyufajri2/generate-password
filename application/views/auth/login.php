@@ -2,51 +2,99 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="shortcut icon" href="<?= base_url('assets/'); ?>img/logo-unisa.png" type="image/x-icon">
-    <title>Halaman Masuk</title>
+    <title><?= $title; ?></title>
 
     <link rel="stylesheet" href="<?= base_url('assets/'); ?>css/style-log.css">
-
 </head>
 
 <body>
-    <section>
-        <div class="form-box">
-            <div class="form-value">
-                <form class="user" method="post" action="<?= base_url('auth'); ?>">
-                    <h2>Masuk Akun</h2>
-                    <div class="inputbox">
-                        <ion-icon name="mail-outline"></ion-icon>
-                        <input type="email" required>
-                        <label for="">Email</label>
-                    </div>
-                    <div class="inputbox">
-                        <ion-icon name="lock-closed-outline"></ion-icon>
-                        <input type="password" required>
-                        <label for="">Kata Sandi</label>
-                    </div>
-                    <div class="remember">
-                        <label for=""><input type="checkbox">Ingatkan Saya</label>
-                    </div>
-                    <button>Masuk</button>
-                    <div class="forgot">
-                        <a href="#">Lupa Kata Sandi</a>
-                    </div>
-                    <div class="register">
-                        <p>Belum punya akun? <a href="<?= base_url('auth/registration'); ?>">Daftar!</a></p>
-                    </div>
-                </form>
+    <div class="background"></div>
+    <div class="container">
+        <div class="content">
+            <h2 class="logo"><img src="<?= base_url('assets/'); ?>img/logo unisa.png" alt="">UNISA Yogyakarta</h2>
+            <div class="text-sci">
+                <h2>Selamat Datang!<br><span>Di Universitas 'Aisyiyah Yogyakarta</span></h2>
+                <p>Ini adalah sistem generate password WiFi</p>
+
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+
+            <div class="logreg-box">
+                <div class="form-box login">
+                    <form action="#">
+                        <h2>Masuk</h2>
+
+                        <div class="input-box">
+                            <span class="icon"><i class="fa-solid fa-envelope"></i></span>
+                            <input type="email" name="email" id="email" required>
+                            <label for="email">Email</label>
+                        </div>
+                        <div class="input-box">
+                            <span class="icon"><i class="fa-solid fa-lock"></i></span>
+                            <input type="password" name="password" id="password" required>
+                            <label for="password">Kata Sandi</label>
+                        </div>
+
+                        <div class="remember-forgot">
+                            <label for=""><input type="checkbox">Ingatkan Saya!</label>
+                            <a href="#">Lupa Password?</a>
+                        </div>
+
+                        <button type="submit" class="btn">Masuk</button>
+
+                        <div class="login-register">
+                            <p>Belum punya akun? <a href="#" class="register-link">Daftar</a></p>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="form-box register">
+                    <form action="#">
+                        <h2>Daftar Akun</h2>
+
+                        <div class="input-box">
+                            <span class="icon"><i class="fa-solid fa-user"></i></span>
+                            <input type="text" name="text" id="text" required>
+                            <label for="text">Nama Lengkap</label>
+                        </div>
+                        <div class="input-box">
+                            <span class="icon"><i class="fa-solid fa-envelope"></i></span>
+                            <input type="email" name="email" id="email" required>
+                            <label for="email">Email</label>
+                        </div>
+                        <div class="input-box">
+                            <span class="icon"><i class="fa-solid fa-lock"></i></span>
+                            <input type="password" name="password" id="password" required>
+                            <label for="password">Kata Sandi</label>
+                        </div>
+                        <div class="input-box">
+                            <span class="icon"><i class="fa-solid fa-lock"></i></span>
+                            <input type="password" name="password" id="password" required>
+                            <label for="password">Ulangi Kata Sandi</label>
+                        </div>
+
+                        <button type="submit" class="btn">Daftar</button>
+
+                        <div class="login-register">
+                            <p>Sudah punya akun? <a href="#" class="login-link">Masuk</a></p>
+                        </div>
+                    </form>
+                </div>
+
             </div>
         </div>
-    </section>
-    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    </div>
+
+
+    <script src="<?= base_url('assets/'); ?>js/script-log.js"></script>
+    <script src="https://kit.fontawesome.com/4cb062cd87.js" crossorigin="anonymous"></script>
 </body>
 
 </html>
