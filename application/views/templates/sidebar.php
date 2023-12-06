@@ -34,21 +34,26 @@
                             ?>
                     </div>
                     <?php foreach ($subMenu as $sm) : ?>
-                        <a class="nav-link" href="<?= base_url($sm['url']); ?>">
-                            <div class="sb-nav-link-icon"><i class="<?= base_url($sm['icon']); ?>"></i></div>
-                            <?= $sm['title']; ?>
+                        <?php if ($title == $sm['title']) : ?>
+                            <a class="nav-link active" href="<?= base_url($sm['url']); ?>">
+                            <?php else : ?>
+                                <a class="nav-link" href="<?= base_url($sm['url']); ?>">
+                                <?php endif; ?>
+                                <div class="sb-nav-link-icon"><i class="<?= $sm['icon']; ?>"></i></div>
+                                <?= $sm['title']; ?>
+                                </a>
+                            <?php endforeach; ?>
+                            <hr>
+                        <?php endforeach; ?>
+
+                        <a class="nav-link" href="<?= base_url('administrator/myProfile'); ?>">
+                            <div class="sb-nav-link-icon"><i class="fas fa-fw fa-solid fa-user"></i></div>
+                            Profil Saya
                         </a>
-                    <?php endforeach; ?>
-                    <hr>
-                <?php endforeach; ?>
-                <a class="nav-link" href="<?= base_url('administrator/myProfile'); ?>">
-                    <div class="sb-nav-link-icon"><i class="fas fa-fw fa-solid fa-user"></i></div>
-                    Profil Saya
-                </a>
-                <a class="nav-link" href="<?= base_url('auth/logout'); ?>" data-bs-toggle="modal" data-bs-target="#logoutModal">
-                    <div class="sb-nav-link-icon"><i class="fas fa-fw fa-solid fa-right-from-bracket"></i></div>
-                    Keluar
-                </a>
+                        <a class="nav-link" href="<?= base_url('auth/logout'); ?>" data-bs-toggle="modal" data-bs-target="#logoutModal">
+                            <div class="sb-nav-link-icon"><i class="fas fa-fw fa-solid fa-right-from-bracket"></i></div>
+                            Keluar
+                        </a>
                 </div>
             </div>
             <div class="sb-sidenav-footer">
