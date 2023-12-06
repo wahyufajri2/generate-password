@@ -20,7 +20,7 @@
                 <li>
                     <hr class="dropdown-divider" />
                 </li>
-                <li><a class="dropdown-item" href="#!">Logout</a></li>
+                <li><a class="dropdown-item" href="<?= base_url('auth/logout');?>" data-bs-toggle="modal" data-bs-target="#logoutModal">Keluar</a></li>
             </ul>
         </li>
     </ul>
