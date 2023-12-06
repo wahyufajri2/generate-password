@@ -13,7 +13,7 @@ class Auth extends CI_Controller
     public function index()
     {
         if ($this->session->userdata('email')) {
-            redirect('admin');
+            redirect('administrator');
         }
         $this->form_validation->set_rules(
             'email',
@@ -73,7 +73,7 @@ class Auth extends CI_Controller
                             setcookie('email', '');
                             setcookie('password', '');
                         }
-                        redirect('admin');
+                        redirect('administrator');
                     }
                 } else {
                     $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Kata sandi salah!</div>');
@@ -160,7 +160,7 @@ class Auth extends CI_Controller
     {
         $this->session->unset_userdata('email');
         $this->session->unset_userdata('role_id');
-        
+
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Anda telah keluar!</div>');
         redirect('auth');
     }
