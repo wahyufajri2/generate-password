@@ -20,12 +20,12 @@
 
                     <div class="input-box">
                         <span class="icon"><i class="fa-solid fa-envelope"></i></span>
-                        <input type="email" name="email" id="email" required>
+                        <input type="text" inputmode="email" name="email" id="email" required>
                         <label for="email">Email</label>
                     </div>
                     <div class="input-box">
-                        <span class="icon"><i class="fa-solid fa-lock"></i></span>
-                        <input type="password" name="password" id="password" required>
+                        <span href="#" id="showPassword" class="icon"><i class="fa-solid fa-eye-slash" id="icon"></i></span>
+                        <input type="password" id="password" name="password" required>
                         <label for="password">Kata Sandi</label>
                     </div>
 
@@ -57,12 +57,12 @@
                         <label for="email">Email</label>
                     </div>
                     <div class="input-box">
-                        <span class="icon"><i class="fa-solid fa-lock"></i></span>
+                        <span href="#" id="showPassword" class="icon"><i class="fa-solid fa-eye-slash" id="icon"></i></span>
                         <input type="password" name="password" id="password" required>
                         <label for="password">Kata Sandi</label>
                     </div>
                     <div class="input-box">
-                        <span class="icon"><i class="fa-solid fa-lock"></i></span>
+                        <span href="#" id="showPassword" class="icon"><i class="fa-solid fa-eye-slash" id="icon"></i></span>
                         <input type="password" name="password" id="password" required>
                         <label for="password">Ulangi Kata Sandi</label>
                     </div>
