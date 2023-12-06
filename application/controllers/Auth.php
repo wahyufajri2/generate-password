@@ -15,10 +15,25 @@ class Auth extends CI_Controller
         if ($this->session->userdata('email')) {
             redirect('admin');
         }
-        $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email');
-        $this->form_validation->set_rules('password', 'Password', 'required|trim', ['required' => 'Password is required!']);
+        $this->form_validation->set_rules(
+            'email',
+            'Email',
+            'required|trim|valid_email',
+            [
+                'required' => 'Email wajib diisi!',
+                'valid_email' => 'Harus diisi email yang valid!'
+            ]
+        );
+        $this->form_validation->set_rules(
+            'password',
+            'Password',
+            'required|trim',
+            [
+                'required' => 'Kata sandi wajib diisi!'
+            ]
+        );
 
-        if ($this->form_validation->run() == false) {
+        if ($this->form_validation->run() == FALSE) {
             $data['title'] = 'Halaman Masuk & Daftar';
 
             $this->load->view('templates/auth_header', $data);
@@ -36,20 +51,20 @@ class Auth extends CI_Controller
 
         $user = $this->db->get_where('user', ['email' => $email])->row_array();
 
-        //if there are users
+        //Pengecekan jika ada user
         if ($user) {
-            //if user is active
+            //Pengecekan jika user aktif
             if ($user['is_active'] == 1) {
-                //ceck password
+                //Pengecekan kata sandi
                 if (password_verify($password, $user['password'])) {
                     $data = [
                         'email' => $user['email'],
                         'role_id' => $user['role_id']
                     ];
 
-                    //set session
+                    //Pengaturaan session
                     $this->session->set_userdata($data);
-                    //check role
+                    //Pengaturan role
                     if ($user['role_id'] == 1) {
                         if ($this->input->post('save_id')) {
                             setcookie('email', $email, time() + 60 * 60 * 24 * 30);
@@ -61,15 +76,15 @@ class Auth extends CI_Controller
                         redirect('admin');
                     }
                 } else {
-                    $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Wrong password!</div>');
+                    $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Kata sandi salah!</div>');
                     redirect('auth');
                 }
             } else {
-                $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">This email has not been activated!</div>');
+                $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Email ini belum diaktifkan!</div>');
                 redirect('auth');
             }
         } else {
-            $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Email is not registered!</div>');
+            $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Email belum terdaftar!</div>');
             redirect('auth');
         }
     }
@@ -145,6 +160,7 @@ class Auth extends CI_Controller
     {
         $this->session->unset_userdata('email');
         $this->session->unset_userdata('role_id');
+        
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Anda telah keluar!</div>');
         redirect('auth');
     }
