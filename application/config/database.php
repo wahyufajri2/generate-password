@@ -75,7 +75,7 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => '127.0.0.1',
+	'hostname' => 'localhost',
 	'username' => 'root',
 	'password' => '',
 	'database' => 'generate-password',
@@ -88,7 +88,7 @@ $db['default'] = array(
 	'char_set' => 'utf8',
 	'dbcollat' => 'utf8_general_ci',
 	'swap_pre' => '',
-	'encrypt' => FALSE,
+	'encrypt' => TRUE,
 	'compress' => FALSE,
 	'stricton' => FALSE,
 	'failover' => array(),
