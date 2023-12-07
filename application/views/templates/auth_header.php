@@ -8,9 +8,9 @@
     <link rel="shortcut icon" href="<?= base_url('assets/'); ?>asssets/img/logo-unisa.png" type="image/x-icon">
     <title><?= $title; ?></title>
 
-    <link rel="stylesheet" href="<?= base_url('assets/'); ?>css/style-log.css">
+    <link href="<?= base_url('assets/'); ?>css/style-log.css" rel="stylesheet">
     <link href="<?= base_url('assets/'); ?>css/styles.css" rel="stylesheet" />
 
 </head>
 
-<body class="custom">
+<body>
