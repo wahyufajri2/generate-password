@@ -46,10 +46,6 @@
                             <hr>
                         <?php endforeach; ?>
 
-                        <a class="nav-link" href="<?= base_url('administrator/myProfile'); ?>">
-                            <div class="sb-nav-link-icon"><i class="fas fa-fw fa-solid fa-user"></i></div>
-                            Profil Saya
-                        </a>
                         <a class="nav-link" href="<?= base_url('auth/logout'); ?>" data-bs-toggle="modal" data-bs-target="#logoutModal">
                             <div class="sb-nav-link-icon"><i class="fas fa-fw fa-solid fa-right-from-bracket"></i></div>
                             Keluar
