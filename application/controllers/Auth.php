@@ -74,7 +74,18 @@ class Auth extends CI_Controller
                             setcookie('password', '');
                         }
                         redirect('administrator');
-                    }
+                    } elseif ($user['role_id'] == 2) {
+                        if ($this->input->post('save_id')) {
+                            setcookie('email', $email, time() + 60 * 60 * 24 * 30);
+                            setcookie('password', $password, time() + 60 * 60 * 24 * 30);
+                        } else {
+                            setcookie('email', '');
+                            setcookie('password', '');
+                        }
+                        redirect('anggota');
+                    } else {
+                        redirect('auth/blocked');
+                    }   
                 } else {
                     $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Kata sandi salah!</div>');
                     redirect('auth');
@@ -163,5 +174,14 @@ class Auth extends CI_Controller
 
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Anda telah keluar!</div>');
         redirect('auth');
+    }
+
+    public function blocked()
+    {
+        $data['title'] = 'Halaman Terblokir';
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('auth/blocked', $data);
+        $this->load->view('templates/footer');
     }
 }
