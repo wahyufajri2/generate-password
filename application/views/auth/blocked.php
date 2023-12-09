@@ -85,7 +85,7 @@
 
                             <p>Anda telah melanggar hak akses!</p>
 
-                            <a href="<?= base_url('anggota'); ?>" class="link_404">Kembali ke Dasbor</a>
+                            <a href="<?= base_url('anggota'); ?>" class="link_404">Kembali ke Profil Saya</a>
                         </div>
                     </div>
                 </div>

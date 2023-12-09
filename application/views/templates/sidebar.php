@@ -54,11 +54,15 @@
             </div>
             <div class="sb-sidenav-footer">
                 <div class="small">Masuk sebagai:</div>
-                <?php foreach ($role as $rl) : ?>
-                    <?php if ($rl['id'] == 1) : ?>
-                        <span value="<?= $rl['id']; ?>"><?= $rl['role']; ?></span>
-                    <?php endif; ?>
-                <?php endforeach; ?>
+                <?php
+                $loggedInRoleId = isset($_SESSION['role_id']) ? $_SESSION['role_id'] : null;
+
+                foreach ($role as $rl) {
+                    if ($rl['id'] == $loggedInRoleId) {
+                        echo '<span value="' . $rl['id'] . '">' . $rl['role'] . '</span>';
+                    };
+                };
+                ?>
             </div>
         </nav>
     </div>

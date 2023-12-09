@@ -13,7 +13,7 @@ class Auth extends CI_Controller
     public function index()
     {
         if ($this->session->userdata('email')) {
-            redirect('administrator');
+            redirect('anggota');
         }
         $this->form_validation->set_rules(
             'email',
@@ -85,7 +85,7 @@ class Auth extends CI_Controller
                         redirect('anggota');
                     } else {
                         redirect('auth/blocked');
-                    }   
+                    }
                 } else {
                     $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Kata sandi salah!</div>');
                     redirect('auth');
@@ -103,7 +103,7 @@ class Auth extends CI_Controller
     public function registration()
     {
         if ($this->session->userdata('email')) {
-            redirect('user');
+            redirect('anggota');
         }
 
         $this->form_validation->set_rules(

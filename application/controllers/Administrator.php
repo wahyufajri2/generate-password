@@ -16,8 +16,8 @@ class Administrator extends CI_Controller
         $data['role'] = $this->db->get('user_role')->result_array();
 
         $this->load->view('templates/header', $data);
-        $this->load->view('templates/sidebar', $data);
         $this->load->view('templates/topbar', $data);
+        $this->load->view('templates/sidebar', $data);
         $this->load->view('administrator/index', $data);
         $this->load->view('templates/footer');
     }
@@ -29,8 +29,8 @@ class Administrator extends CI_Controller
         $data['role'] = $this->db->get('user_role')->result_array();
 
         $this->load->view('templates/header', $data);
-        $this->load->view('templates/sidebar', $data);
         $this->load->view('templates/topbar', $data);
+        $this->load->view('templates/sidebar', $data);
         $this->load->view('administrator/data_pengguna', $data);
         $this->load->view('templates/footer');
     }
@@ -42,8 +42,8 @@ class Administrator extends CI_Controller
         $data['role'] = $this->db->get('user_role')->result_array();
 
         $this->load->view('templates/header', $data);
-        $this->load->view('templates/sidebar', $data);
         $this->load->view('templates/topbar', $data);
+        $this->load->view('templates/sidebar', $data);
         $this->load->view('administrator/generator', $data);
         $this->load->view('templates/footer');
     }
