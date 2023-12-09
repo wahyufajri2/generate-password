@@ -16,8 +16,8 @@ class Anggota extends CI_Controller
         $data['role'] = $this->db->get('user_role')->result_array();
 
         $this->load->view('templates/header', $data);
-        $this->load->view('templates/sidebar', $data);
         $this->load->view('templates/topbar', $data);
+        $this->load->view('templates/sidebar', $data);
         $this->load->view('anggota/index', $data);
         $this->load->view('templates/footer');
     }
