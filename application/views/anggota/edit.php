@@ -15,6 +15,7 @@
             <li class="breadcrumb-item"><a href="<?= base_url('anggota'); ?>"><?= $title; ?></a></li>
             <li class="breadcrumb-item active">Ubah Profil</li>
         </ol>
+        <hr>
         <div class="row">
             <div class="col-lg-8">
 

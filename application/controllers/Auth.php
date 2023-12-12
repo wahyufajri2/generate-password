@@ -180,8 +180,6 @@ class Auth extends CI_Controller
     {
         $data['title'] = 'Halaman Terblokir';
 
-        $this->load->view('templates/header', $data);
         $this->load->view('auth/blocked', $data);
-        $this->load->view('templates/footer');
     }
 }

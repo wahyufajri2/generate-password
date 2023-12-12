@@ -11,6 +11,7 @@
                 </a></li>
             <li class="breadcrumb-item active"><?= $title; ?></li>
         </ol>
+        <hr>
         <div class="row">
             <div class="col-lg d-flex justify-content-center"><b>Silakan melakukan generate username dan password!</b></div>
         </div>
