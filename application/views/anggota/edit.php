@@ -1,15 +1,19 @@
 <main>
     <div class="container-fluid px-4">
-        <h1 class="mt-4"><?= $title; ?></h1>
+        <h1 class="mt-4">Ubah Profil</h1>
         <ol class="breadcrumb mb-4">
             <li class="breadcrumb-item"><a href="<?= base_url('anggota'); ?>">
-                    <?php foreach ($role as $rl) : ?>
-                        <?php if ($rl['id'] == 1) : ?>
-                            <span value="<?= $rl['id']; ?>"><?= $rl['role']; ?></span>
-                        <?php endif; ?>
-                    <?php endforeach; ?>
+                    <?php
+                    $loggedInRoleId = isset($_SESSION['role_id']) ? $_SESSION['role_id'] : null;
+
+                    foreach ($role as $rl) {
+                        if ($rl['id'] == $loggedInRoleId) {
+                            echo '<span value="' . $rl['id'] . '">' . $rl['role'] . '</span>';
+                        };
+                    }; ?>
                 </a></li>
-            <li class="breadcrumb-item active"><?= $title; ?></li>
+            <li class="breadcrumb-item"><a href="<?= base_url('anggota'); ?>"><?= $title; ?></a></li>
+            <li class="breadcrumb-item active">Ubah Profil</li>
         </ol>
         <div class="row">
             <div class="col-lg-8">
