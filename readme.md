@@ -21,7 +21,9 @@ Berikut adalah langkah-langkah untuk menginstal proyek ini secara lokal:
    cd generate-password
    ```
 
-3. Buka url `http://localhost/generate-password/` menggunakan browser web.
+3. Jalankan server web yang kalian punya.
+
+4. Buka url `http://localhost/generate-password/` menggunakan browser web.
 
 ## Panduan Penggunaan
 
