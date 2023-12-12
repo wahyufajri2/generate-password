@@ -11,6 +11,13 @@
                 </a></li>
             <li class="breadcrumb-item active"><?= $title; ?></li>
         </ol>
+
+        <div class="row">
+            <div class="col-lg-5">
+                <?= $this->session->flashdata('message'); ?>
+            </div>
+        </div>
+
         <div class="card mb-3" style="max-width: 540px;">
             <div class="row g-0">
                 <div class="col-md-4">

@@ -32,24 +32,25 @@
                                             ";
                             $subMenu = $this->db->query($querySubMenu)->result_array();
                             ?>
-                    </div>
-                    <?php foreach ($subMenu as $sm) : ?>
-                        <?php if ($title == $sm['title']) : ?>
-                            <a class="nav-link active" href="<?= base_url($sm['url']); ?>">
-                            <?php else : ?>
-                                <a class="nav-link" href="<?= base_url($sm['url']); ?>">
-                                <?php endif; ?>
-                                <div class="sb-nav-link-icon"><i class="<?= $sm['icon']; ?>"></i></div>
-                                <?= $sm['title']; ?>
-                                </a>
-                            <?php endforeach; ?>
-                            <hr>
-                        <?php endforeach; ?>
 
-                        <a class="nav-link" href="<?= base_url('auth/logout'); ?>" data-bs-toggle="modal" data-bs-target="#logoutModal">
-                            <div class="sb-nav-link-icon"><i class="fas fa-fw fa-solid fa-right-from-bracket"></i></div>
-                            Keluar
-                        </a>
+                            <?php foreach ($subMenu as $sm) : ?>
+                                <?php if ($title == $sm['title']) : ?>
+                                    <a class="nav-link active" href="<?= base_url($sm['url']); ?>">
+                                    <?php else : ?>
+                                        <a class="nav-link" href="<?= base_url($sm['url']); ?>">
+                                        <?php endif; ?>
+                                        <div class="sb-nav-link-icon"><i class="<?= $sm['icon']; ?>"></i></div>
+                                        <?= $sm['title']; ?>
+                                        </a>
+                                    <?php endforeach; ?>
+                                    <hr>
+                                <?php endforeach; ?>
+                    </div>
+
+                    <a class="nav-link" href="<?= base_url('auth/logout'); ?>" data-bs-toggle="modal" data-bs-target="#logoutModal">
+                        <div class="sb-nav-link-icon"><i class="fas fa-fw fa-solid fa-right-from-bracket"></i></div>
+                        Keluar
+                    </a>
                 </div>
             </div>
             <div class="sb-sidenav-footer">
