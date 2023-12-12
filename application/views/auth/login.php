@@ -7,9 +7,9 @@
             <p>Ini adalah sistem generate password WiFi</p>
 
             <div class="social-icons-custom">
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                <a href="#"><i class="fa-brands fa-youtube"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.facebook.com/UniversitasAisyiyahYogyakarta/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://youtu.be/BAB4N_t9lh0?si=YBw6lRzGidFQ3I6e" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+                <a href="https://www.instagram.com/unisa_yogya/" target="_blank"><i class="fab fa-instagram"></i></a>
             </div>
         </div>
 
