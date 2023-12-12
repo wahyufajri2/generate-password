@@ -13,7 +13,7 @@
                 <span class="mr-2 d-none d-lg-inline text-gray-900 small"><?= $user['name']; ?></span>
                 <img width="20px" src="<?= base_url('assets/assets/img/profile/') . $user['image']; ?>">
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="<?= base_url('administrator/myProfile'); ?>">Profil Saya</a></li>
+                    <li><a class="dropdown-item" href="<?= base_url('anggota'); ?>">Profil Saya</a></li>
                     <li>
                         <hr class="dropdown-divider" />
                     </li>

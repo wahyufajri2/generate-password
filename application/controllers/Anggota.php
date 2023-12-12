@@ -24,10 +24,10 @@ class Anggota extends CI_Controller
 
     public function edit()
     {
-        $data['title'] = 'Ubah Profil';
+        $data['title'] = 'Profil Saya';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $data['role'] = $this->db->get('user_role')->result_array();
-        
+
         $this->form_validation->set_rules('name', 'Nama lengkap', 'required|trim');
 
         if ($this->form_validation->run() == false) {
