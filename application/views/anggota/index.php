@@ -18,7 +18,7 @@
         <div class="row">
             <div class="col-lg-5">
                 <a href="<?= base_url('anggota/edit'); ?>" class="btn btn-primary mb-3"><i class="fas fa-solid fa-user-pen"></i> Ubah Profil</a>
-                <a href="<?= base_url('anggota/tambah'); ?>" class="btn btn-danger mb-3"><i class="fas fa-solid fa-key"></i> Ganti Kata Sandi</a>
+                <a href="<?= base_url('anggota/changePassword'); ?>" class="btn btn-danger mb-3"><i class="fas fa-solid fa-key"></i> Ganti Kata Sandi</a>
             </div>
         </div>
 
