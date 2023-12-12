@@ -14,6 +14,7 @@
                 </a></li>
             <li class="breadcrumb-item active"><?= $title; ?></li>
         </ol>
+        <hr>
 
         <div class="row">
             <div class="col-lg-5">
