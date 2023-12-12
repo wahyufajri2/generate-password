@@ -1,71 +1,55 @@
-###################
-What is CodeIgniter
-###################
+README.md - generate-password
 
-CodeIgniter is an Application Development Framework - a toolkit - for people
-who build web sites using PHP. Its goal is to enable you to develop projects
-much faster than you could if you were writing code from scratch, by providing
-a rich set of libraries for commonly needed tasks, as well as a simple
-interface and logical structure to access these libraries. CodeIgniter lets
-you creatively focus on your project by minimizing the amount of code needed
-for a given task.
+Sistem Generate Password WiFi Kampus
+Deskripsi Proyek
+Proyek ini adalah implementasi sistem generate password WiFi kampus untuk Universitas 'Aisyiyah Yogyakarta. Sistem ini memanfaatkan framework Codeigniter 3 untuk sisi server dan Bootstrap 5 untuk antarmuka pengguna (UI). Tujuan utama dari proyek ini adalah memudahkan proses penggunaan WiFi kampus dengan memberikan password yang di-generate secara dinamis.
 
-*******************
-Release Information
-*******************
+Fitur Utama
+Generate Password Otomatis: Sistem ini dapat menghasilkan password WiFi secara otomatis dengan format yang telah ditentukan.
+Multi-Device: Password yang di-generate dapat digunakan oleh satu atau lebih perangkat sekaligus.
+Durasi Waktu Penggunaan: Terdapat fitur durasi waktu penggunaan, sehingga password yang di-generate hanya berlaku untuk periode tertentu.
+Antarmuka Pengguna Responsif: Antarmuka pengguna dibangun menggunakan Bootstrap 5 untuk memastikan tampilan yang responsif dan ramah pengguna.
+Instalasi
+Prasyarat
+PHP >= 5.6
+MySQL atau database lainnya
+Web server (contoh: Apache, Nginx)
+Composer (untuk manajemen dependensi)
+Langkah-langkah Instalasi
+Clone repositori ini ke dalam direktori web server Anda.
 
-This repo contains in-development code for future releases. To download the
-latest stable release please visit the `CodeIgniter Downloads
-<https://codeigniter.com/download>`_ page.
+bash
+Copy code
+git clone https://github.com/nama-user/generate-password.git
+Buka terminal dan masuk ke direktori proyek.
 
-**************************
-Changelog and New Features
-**************************
+bash
+Copy code
+cd generate-password
+Salin file application/config/database.php.example menjadi application/config/database.php dan konfigurasikan koneksi database.
 
-You can find a list of all changes for each release in the `user
-guide change log <https://github.com/bcit-ci/CodeIgniter/blob/develop/user_guide_src/source/changelog.rst>`_.
+bash
+Copy code
+cp application/config/database.php.example application/config/database.php
+Salin file .env.example menjadi .env dan konfigurasikan setelan umum aplikasi.
 
-*******************
-Server Requirements
-*******************
+bash
+Copy code
+cp .env.example .env
+Buka file .env dan sesuaikan konfigurasi database dan setelan lainnya.
 
-PHP version 5.6 or newer is recommended.
+Import skema database ke dalam database MySQL Anda.
 
-It should work on 5.3.7 as well, but we strongly advise you NOT to run
-such old versions of PHP, because of potential security and performance
-issues, as well as missing features.
+bash
+Copy code
+mysql -u your_username -p your_database_name < database.sql
+Serve aplikasi menggunakan web server seperti Apache atau Nginx.
 
-************
-Installation
-************
+Buka aplikasi di browser dengan alamat http://localhost/generate-password.
 
-Please see the `installation section <https://codeigniter.com/userguide3/installation/index.html>`_
-of the CodeIgniter User Guide.
+Kontribusi
+Kami menyambut kontribusi dari semua pihak. Jika Anda menemui masalah atau memiliki saran perbaikan, silakan buka issue atau kirim pull request.
 
-*******
-License
-*******
+Lisensi
+Proyek ini dilisensikan di bawah lisensi MIT. Anda bebas menggunakan, mendistribusikan, dan memodifikasi proyek ini sesuai dengan ketentuan lisensi.
 
-Please see the `license
-agreement <https://github.com/bcit-ci/CodeIgniter/blob/develop/user_guide_src/source/license.rst>`_.
-
-*********
-Resources
-*********
-
--  `User Guide <https://codeigniter.com/docs>`_
--  `Contributing Guide <https://github.com/bcit-ci/CodeIgniter/blob/develop/contributing.md>`_
--  `Language File Translations <https://github.com/bcit-ci/codeigniter3-translations>`_
--  `Community Forums <http://forum.codeigniter.com/>`_
--  `Community Wiki <https://github.com/bcit-ci/CodeIgniter/wiki>`_
--  `Community Slack Channel <https://codeigniterchat.slack.com>`_
-
-Report security issues to our `Security Panel <mailto:security@codeigniter.com>`_
-or via our `page on HackerOne <https://hackerone.com/codeigniter>`_, thank you.
-
-***************
-Acknowledgement
-***************
-
-The CodeIgniter team would like to thank EllisLab, all the
-contributors to the CodeIgniter project and you, the CodeIgniter user.
