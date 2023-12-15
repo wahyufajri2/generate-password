@@ -21,19 +21,28 @@
 
                     <div class="input-box-custom">
                         <span class="icon"><i class="fa-solid fa-envelope"></i></span>
-                        <input type="text" inputmode="email" name="email" id="email" aria-describedby="emailHelp" value="<?= set_value('email'); ?>">
+                        <input type="text" inputmode="email" name="email" id="email" aria-describedby="emailHelp" value="<?php if (isset($_COOKIE["email"])) {
+                                                                                                                                echo $_COOKIE["email"];
+                                                                                                                            } else {
+                                                                                                                                echo set_value('email');
+                                                                                                                            } ?>">
                         <?= form_error('email', '<small class="text-warning pl-3">', '</small>'); ?>
                         <label for="email">Email</label>
                     </div>
                     <div class="input-box-custom">
                         <span href="#" id="showPassword" class="icon"><i class="fa-solid fa-eye-slash" id="icon"></i></span>
-                        <input type="password" id="password" name="password" value="">
+                        <input type="password" id="password" name="password" value="<?php if (isset($_COOKIE["password"])) {
+                                                                                        echo $_COOKIE["password"];
+                                                                                    } ?>">
                         <?= form_error('password', '<small class="text-warning pl-3">', '</small>'); ?>
                         <label for="password">Kata Sandi</label>
                     </div>
 
                     <div class="remember-forgot">
-                        <label for=""><input type="checkbox">Ingatkan Saya!</label>
+                        <label for="save_id"><input type="checkbox" id="save_id" name="save_id" <?php if (isset($_COOKIE['email'])) {
+                                                                                                        echo "checked";
+                                                                                                    } ?>>
+                            Ingatkan Saya!</label>
                         <a href="<?= base_url('auth/forgotPassword') ?>">Lupa Kata Sandi?</a>
                     </div>
 
