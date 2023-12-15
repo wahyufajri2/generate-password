@@ -34,7 +34,7 @@
 
                     <div class="remember-forgot">
                         <label for=""><input type="checkbox">Ingatkan Saya!</label>
-                        <a href="#">Lupa Password?</a>
+                        <a href="<?= base_url('auth/forgotPassword') ?>">Lupa Kata Sandi?</a>
                     </div>
 
                     <button type="submit" class="btn-custom">
