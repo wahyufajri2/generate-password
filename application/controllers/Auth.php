@@ -151,18 +151,137 @@ class Auth extends CI_Controller
             $this->load->view('auth/login', $data);
             $this->load->view('templates/auth_footer');
         } else {
+            $name = $this->input->post('name', true);
+            $email = $this->input->post('email', true);
             $data = [
-                'name' => htmlspecialchars($this->input->post('name', true)),
-                'email' => htmlspecialchars($this->input->post('email', true)),
+                'name' => htmlspecialchars($name),
+                'email' => htmlspecialchars($email),
                 'image' => 'default.jpg',
                 'password' => password_hash($this->input->post('password1'), PASSWORD_DEFAULT),
                 'role_id' => 1,
-                'is_active' => 1,
+                'is_active' => 0,
+                'date_created' => time()
+            ];
+
+            // Siapkan token
+            function base64url_encode($data, $pad = null)
+            {
+                $data = str_replace(array('+', '/'), array('-', '_'), base64_encode($data));
+                if (!$pad) {
+                    $data = rtrim($data, '=');
+                }
+                return $data;
+            }
+
+            function base64url_decode($data)
+            {
+                return base64_decode(str_replace(array('-', '_'), array('+', '/'), $data));
+            }
+
+            $token = base64url_encode(random_bytes(32));
+            $user_token = [
+                'email' => $email,
+                'token' => $token,
                 'date_created' => time()
             ];
 
             $this->db->insert('user', $data);
-            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Selamat! akun Anda sudah dibuat. Silakan masuk!</div>');
+            $this->db->insert('user_token', $user_token);
+
+            // Kirim email
+            $this->_sendEmail($token, 'verify');
+
+
+
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Selamat! akun Anda sudah dibuat. Silakan hubungi administrator untuk mengaktifkan akun Anda!</div>');
+            redirect('auth');
+        }
+    }
+
+    private function _sendEmail($token, $type)
+    {
+        $name = $this->input->post('name', true);
+        $email = $this->input->post('email', true);
+        $adminEmail = 'whybaik2@gmail.com';
+        $config = [
+            'protocol'  => 'smtp',
+            'smtp_host' => 'ssl://smtp.googlemail.com',
+            'smtp_user' => $adminEmail,
+            'smtp_pass' => 'vwrt meio qatm vrsn',
+            'smtp_port' => 465,
+            'mailtype'  => 'html',
+            'charset'   => 'utf-8',
+            'newline'   => "\r\n"
+        ];
+
+        $this->load->library('email', $config);
+        $this->email->initialize($config);
+
+        $this->email->from($adminEmail, 'Administator');
+        $this->email->to($adminEmail);
+
+        if ($type == 'verify') {
+            $this->email->subject('Verifikasi Akun');
+            $this->email->message('<h2>Aktivasi Akun</h2>
+            <p>Baru saja ada akun baru atas nama <strong>' . $name . '</strong> dengan alamat email ' . $email . '.</p>
+            <p>Jika Anda ingin mengaktifkan akun tersebut, harap klik tautan di bawah ini:</p>
+            <a href="' . base_url() . 'auth/verify?email=' . $this->input->post('email') . '& token=' . urldecode($token) . '">Aktivasi</a>
+            <p>Terima kasih atas tanggapan yang Anda berikan!</p>
+            <p>Salam,<br>Tim Website Kami</p>');
+        } else if ($type == 'forgot') {
+            $this->email->subject('Reset Kata Sandi');
+            $this->email->message('Klik link ini untuk mereset kata sandi Anda : <a href="' . base_url() . 'auth/resetpassword?email=' . $this->input->post('email') . '& token=' . urldecode($token) . '">Reset Kata Sandi</a>');
+        }
+
+        if ($this->email->send()) {
+            return true;
+        } else {
+            echo $this->email->print_debugger();
+            die;
+        }
+    }
+
+    public function verify()
+    {
+        $email = $this->input->get('email');
+        $token = $this->input->get('token');
+
+        //Pengecekan email
+        $user = $this->db->get_where('user', ['email' => $email])->row_array();
+
+        //Pengecekan jika ada user
+        if ($user) {
+            //Pengecekan jika token benar
+            $user_token = $this->db->get_where('user_token', ['token' => $token])->row_array();
+
+            //Pengecekan jika ada token
+            if ($user_token) {
+                //Pengecekan jika token belum kadaluarsa
+                if (time() - $user_token['date_created'] < (60 * 60 * 24)) {
+                    //Pengaktifan akun
+                    $this->db->set('is_active', 1);
+                    $this->db->where('email', $email);
+                    $this->db->update('user');
+
+                    //Penghapusan token
+                    $this->db->delete('user_token', ['email' => $email]);
+
+                    $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">' . $email . ' telah diaktifkan! Silakan masuk.</div>');
+                    redirect('auth');
+                } else {
+                    //Penghapusan user dan token
+                    $this->db->delete('user', ['email' => $email]);
+                    $this->db->delete('user_token', ['email' => $email]);
+
+                    $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Aktivasi akun gagal! Token kadaluarsa.</div>');
+                    redirect('auth');
+                }
+            } else {
+                $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Aktivasi akun gagal! Token salah.</div>');
+                redirect('auth');
+            }
+        } else {
+            $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Aktivasi akun gagal! Email salah.</div>');
             redirect('auth');
         }
     }
