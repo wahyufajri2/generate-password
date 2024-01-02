@@ -24,3 +24,21 @@ window.addEventListener('DOMContentLoaded', event => {
     }
 
 });
+
+const marqueeText = document.getElementById('marqueeText');
+const marqueeText1 = document.getElementById('marqueeText1');
+const marqueeText2 = document.getElementById('marqueeText2');
+const marqueeContainer = document.querySelector('.marquee-container');
+
+function startMarquee() {
+    const containerWidth = marqueeContainer.offsetWidth;
+    const textWidth = marqueeText.offsetWidth;
+
+    if (textWidth > containerWidth) {
+        marqueeText.style.animation = `marquee ${(textWidth / 70)}s linear infinite`;
+        marqueeText1.style.animation = `marquee ${(textWidth / 70)}s linear infinite`;
+        marqueeText2.style.animation = `marquee ${(textWidth / 70)}s linear infinite`;
+    }
+}
+
+startMarquee();
