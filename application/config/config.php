@@ -24,10 +24,10 @@ defined('BASEPATH') or exit('No direct script access allowed');
 |
 */
 // ini untuk hosting
-$config['base_url'] = 'https://kreasiweb.id/';
+// $config['base_url'] = 'https://kreasiweb.id/';
 
 // ini untuk localhost
-// $config['base_url'] = 'http://localhost/generate-password/';
+$config['base_url'] = 'http://localhost/generate-password/';
 
 /*
 |--------------------------------------------------------------------------
