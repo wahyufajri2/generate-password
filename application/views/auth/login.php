@@ -30,7 +30,7 @@
                         <label for="email">Email</label>
                     </div>
                     <div class="input-box-custom">
-                        <span href="#" id="showPassword" class="icon"><i class="fa-solid fa-eye-slash" id="icon"></i></span>
+                        <span class="icon"><i class="fa-solid fa-eye-slash" id="icon"></i></span>
                         <input type="password" id="password" name="password" value="<?php if (isset($_COOKIE["password"])) {
                                                                                         echo $_COOKIE["password"];
                                                                                     } ?>">

@@ -29,31 +29,33 @@
                     <div class="col-lg">
                         <div class="marquee-container">
                             <div class="marquee-wrapper">
-                                <span id="marqueeText" class="marquee-text">Silakan Cek Password berdasarkan ID</span>
+                                <span id="marqueeText" class="marquee-text"><strong>Silakan Cek Password Berdasarkan ID</strong></span>
                             </div>
                         </div>
-                        <div class="row g-3 mt-1 align-items-center">
-                            <div class="col-lg-2">
-                                <label for="user_id" class="col-form-label"><b>User ID</b></label>
+                        <form action="<?= base_url('administrator/hotspotUserID'); ?>" method="POST">
+                            <div class="row g-3 mt-1 align-items-center">
+                                <div class="col-lg-2">
+                                    <label for="id_tamu" class="col-form-label"><b>User ID</b></label>
+                                </div>
+                                <div class="col-lg">
+                                    <input type="text" id="id_tamu" name="id_tamu" class="form-control">
+                                </div>
                             </div>
-                            <div class="col-lg">
-                                <input type="text" id="user_id" name="user_id" class="form-control">
+                            <div class="row g-3 mt-1 align-items-center">
+                                <div class="col-lg-2">
+                                    <label for="kode_enkripsi" class="col-form-label"><b>Kode Enkripsi</b></label>
+                                </div>
+                                <div class="col-lg">
+                                    <input type="text" id="kode_enkripsi" name="kode_enkripsi" class="form-control" value="f1515859-8a5f-11ed-9761-80c16e7478f0">
+                                </div>
                             </div>
-                        </div>
-                        <div class="row g-3 mt-1 align-items-center">
-                            <div class="col-lg-2">
-                                <label for="user_id" class="col-form-label"><b>Kode Enkripsi</b></label>
+                            <div class="row g-3 mt-1 align-items-center">
+                                <div class="col-lg-2"></div>
+                                <div class="col-lg">
+                                    <button type="submit" class="btn btn-primary">Tampil Data</button>
+                                </div>
                             </div>
-                            <div class="col-lg">
-                                <input type="text" id="user_id" name="user_id" class="form-control">
-                            </div>
-                        </div>
-                        <div class="row g-3 mt-1 align-items-center">
-                            <div class="col-lg-2"></div>
-                            <div class="col-lg">
-                                <a type="button" class="btn btn-primary">Tampil Data</a>
-                            </div>
-                        </div>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -62,31 +64,33 @@
                     <div class="col-lg">
                         <div class="marquee-container">
                             <div class="marquee-wrapper">
-                                <span id="marqueeText1" class="marquee-text">Silakan Cek Password Berdasarkan Kode Panggil</span>
+                                <span id="marqueeText1" class="marquee-text"><strong>Silakan Cek Password Berdasarkan Kode Panggil</strong></span>
                             </div>
                         </div>
-                        <div class="row g-3 mt-1 align-items-center">
-                            <div class="col-lg-2">
-                                <label for="user_id" class="col-form-label"><b>Kode Panggil</b></label>
+                        <form action="<?= base_url('administrator/hotspotUserPanggil'); ?>" method="post">
+                            <div class="row g-3 mt-1 align-items-center">
+                                <div class="col-lg-2">
+                                    <label for="kode_panggil" class="col-form-label"><b>Kode Panggil</b></label>
+                                </div>
+                                <div class="col-lg">
+                                    <input type="text" id="kode_panggil" name="kode_panggil" class="form-control">
+                                </div>
                             </div>
-                            <div class="col-lg">
-                                <input type="text" id="user_id" name="user_id" class="form-control">
+                            <div class="row g-3 mt-1 align-items-center">
+                                <div class="col-lg-2">
+                                    <label for="kode_enkripsi" class="col-form-label"><b>Kode Enkripsi</b></label>
+                                </div>
+                                <div class="col-lg">
+                                    <input type="text" id="kode_enkripsi" name="kode_enkripsi" class="form-control" value="f1515859-8a5f-11ed-9761-80c16e7478f0">
+                                </div>
                             </div>
-                        </div>
-                        <div class="row g-3 mt-1 align-items-center">
-                            <div class="col-lg-2">
-                                <label for="user_id" class="col-form-label"><b>Kode Enkripsi</b></label>
+                            <div class="row g-3 mt-1 align-items-center">
+                                <div class="col-lg-2"></div>
+                                <div class="col-lg">
+                                    <button type="submit" class="btn btn-primary"> Tampil Data</button>
+                                </div>
                             </div>
-                            <div class="col-lg">
-                                <input type="text" id="user_id" name="user_id" class="form-control">
-                            </div>
-                        </div>
-                        <div class="row g-3 mt-1 align-items-center">
-                            <div class="col-lg-2"></div>
-                            <div class="col-lg">
-                                <a type="button" class="btn btn-primary"> Tampil Data</a>
-                            </div>
-                        </div>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -95,31 +99,33 @@
                     <div class="col-lg">
                         <div class="marquee-container">
                             <div class="marquee-wrapper">
-                                <span id="marqueeText2" class="marquee-text">Silakan Cek Password Berdasarkan Tanggal Generate</span>
+                                <span id="marqueeText2" class="marquee-text"><strong>Silakan Cek Password Berdasarkan Tanggal Generate</strong></span>
                             </div>
                         </div>
-                        <div class="row g-3 mt-1 align-items-center">
-                            <div class="col-lg-2">
-                                <label for="user_id" class="col-form-label"><b>Tanggal Generate</b></label>
+                        <form action="<?= base_url('administrator/hotspotUserTgl'); ?>" method="post">
+                            <div class="row g-3 mt-1 align-items-center">
+                                <div class="col-lg-2">
+                                    <label for="tgl_generate" class="col-form-label"><b>Tanggal Generate</b></label>
+                                </div>
+                                <div class="col-lg">
+                                    <input type="text" id="tgl_generate" name="tgl_generate" class="form-control">
+                                </div>
                             </div>
-                            <div class="col-lg">
-                                <input type="text" id="user_id" name="user_id" class="form-control">
+                            <div class="row g-3 mt-1 align-items-center">
+                                <div class="col-lg-2">
+                                    <label for="kode_enkripsi" class="col-form-label"><b>Kode Enkripsi</b></label>
+                                </div>
+                                <div class="col-lg">
+                                    <input type="text" id="kode_enkripsi" name="kode_enkripsi" class="form-control" value="f1515859-8a5f-11ed-9761-80c16e7478f0">
+                                </div>
                             </div>
-                        </div>
-                        <div class="row g-3 mt-1 align-items-center">
-                            <div class="col-lg-2">
-                                <label for="user_id" class="col-form-label"><b>Kode Enkripsi</b></label>
+                            <div class="row g-3 mt-1 align-items-center">
+                                <div class="col-lg-2"></div>
+                                <div class="col-lg">
+                                    <button type="submit" class="btn btn-primary"> Tampil Data</button>
+                                </div>
                             </div>
-                            <div class="col-lg">
-                                <input type="text" id="user_id" name="user_id" class="form-control">
-                            </div>
-                        </div>
-                        <div class="row g-3 mt-1 align-items-center">
-                            <div class="col-lg-2"></div>
-                            <div class="col-lg">
-                                <a type="button" class="btn btn-primary"> Tampil Data</a>
-                            </div>
-                        </div>
+                        </form>
                     </div>
                 </div>
             </div>
